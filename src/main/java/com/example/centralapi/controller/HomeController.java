@@ -21,6 +21,7 @@ public class HomeController {
     @PostMapping("/api/data")
     public void saveAuditData(@RequestBody AuditEntity auditEntity) {
 //        centralService.saveEntity(centralEntity);
+//        double doubleValue = Double.parseDouble("stringValue");
         auditRepo.save(auditEntity);
 
     }
