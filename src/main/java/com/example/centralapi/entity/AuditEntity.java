@@ -5,12 +5,18 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "serviceAuditing")
 public class AuditEntity {
+
+    private String queryParameter;
+    private LocalDateTime auditTime;
+    private String clientId;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

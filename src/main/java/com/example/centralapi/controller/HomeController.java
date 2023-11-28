@@ -2,10 +2,8 @@ package com.example.centralapi.controller;
 import com.example.centralapi.entity.AuditEntity;
 import com.example.centralapi.repo.AuditRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class HomeController {
@@ -18,10 +16,21 @@ public class HomeController {
         return "audited the api";
     }
 
+//    @PostMapping("/create")
+//    public ResponseEntity<String> create(@RequestParam String name) {
+//        // Create a new User entity
+//        AuditEntity auditEntity=new AuditEntity();
+//        auditEntity.setQueryParameter(name);
+//
+//        // Save the user to the database
+//        auditRepo.save(auditEntity);
+//
+//        // Return a success message
+//        return ResponseEntity.ok("User created successfully In central Api");
+//    }
+
     @PostMapping("/api/data")
     public void saveAuditData(@RequestBody AuditEntity auditEntity) {
-//        centralService.saveEntity(centralEntity);
-//        double doubleValue = Double.parseDouble("stringValue");
         auditRepo.save(auditEntity);
 
     }
