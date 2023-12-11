@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class HomeController {
-
     @Autowired
     private AuditRepo auditRepo;
 
@@ -15,28 +14,9 @@ public class HomeController {
     public String getAudit(){
         return "audited the api";
     }
-
-//    @PostMapping("/create")
-//    public ResponseEntity<String> create(@RequestParam String name) {
-//        // Create a new User entity
-//        AuditEntity auditEntity=new AuditEntity();
-//        auditEntity.setQueryParameter(name);
-//
-//        // Save the user to the database
-//        auditRepo.save(auditEntity);
-//
-//        // Return a success message
-//        return ResponseEntity.ok("User created successfully In central Api");
-//    }
-
     @PostMapping("/api/data")
     public void saveAuditData(@RequestBody AuditEntity auditEntity) {
         auditRepo.save(auditEntity);
 
     }
-
-
-
-
-
 }
